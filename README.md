@@ -1,4 +1,4 @@
-# R_Basics
+# R Basics
 
 ## apply 家族
 apply 家族位在 R 內建的 base 裡面，不需要額外安裝 package
@@ -88,8 +88,8 @@ eapply(env, mean)
 eapply(environment(), object.size)
 ```
 
-#### 圖示
-
+## 圖示
+![apply家族](https://github.com/sueshow/Python_Latitude-and-Longitude/blob/master/picture/%E5%88%86%E5%B8%B6%E9%A1%9E%E5%9E%8B.JPG)
 
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
