@@ -28,11 +28,12 @@ EX1 <- lapply(1:3, function(x)x^x)                        # x 的 x 次方
 x <- cbind(x1=3, x2=c(2:1,4:5))
 class(x)
 lapply(x, sum)
+
 lapply(data.frame(x), sum)
 ```
 <br>
 
-* sapply()：sapply(X, FUN, ..., simplify=TRUE, USE.NAMES = TRUE)
+* sapply()：sapply(X, FUN, ..., simplify=TRUE, USE.NAMES=TRUE)
   * 透過函數 sapply 回傳的結果是將 list 形式簡單化 (simplified) 後的 vector
   * sapply 在功能上與 lapply 基本上是一樣的，都是餵給一個 list，然後依據後面指定的功能函數來一項一項做運算， 不過跟 lapply 不同的是，sapply 會回傳一個 vector
   * 如果 simplify=FALSE 和 USE.NAMES=FALSE，sapply 完全等於 lapply
@@ -45,11 +46,12 @@ sapply(data2, mean)
 ```
 a <- 1:2
 sapply(a, function(x) matrix(x,2,2), simplify='array')
+
 sapply(a, function(x) matrix(x,2,2))
 ```
 <br>
 
-* mapply()：mapply(FUN, ...)
+* mapply()：mapply(FUN, ..., MoreArgs=NULL, SIMPLIFY=TRUE, USE.NAMES=TRUE)
   * 可以同時使用多個變數
   * 在 mapply 中，運算函數放前，list 在後。假設今天給 mapply 三個 list{a, b, c}，mapply 會分別取三個 list 的第一項去做第一次運算，然後換三個 list 的第二項去做第二次運算…依此類推
 ```
@@ -62,29 +64,30 @@ mapply(max, x, y, z)
 ```
 <br>
 
-* vapply()：vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
-  * 
+* vapply()：vapply(X, FUN, FUN.VALUE, ..., USE.NAMES=TRUE)
+  * vapply 類似於 sapply，提供 FUN.VALUE 參數，用來控制返回值的行名
 ```
 x <- data.frame(cbind(x1=3, x2=c(2:1,4:5)))
 vapply(x, cumsum, FUN.VALUE=c('a'=0, 'b'=0, 'c'=0, 'd'=0))
+
 a <- sapply(x, cumsum)
 row.names(a) <- c('a', 'b', 'c', 'd')
 ```
 <br>
 
-* tapply()：tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
-  * 
+* tapply()：tapply(X, INDEX, FUN=NULL, ..., simplify=TRUE)
 ```
 x <- y <- 1:10
 # 設置分組索引t
 t <- round(runif(10,1,100)%%2)
 tapply(x, t, sum)
+
 # 對於 t=0 時，x=8 再加上 y=55，最後計算結果為 63
 tapply(x, t, sum, y)
 ```
 <br>
 
-* rapply()：rapply(object, f, classes = "ANY", deflt = NULL, how = c("unlist", "replace", "list"), ...)
+* rapply()：rapply(object, f, classes="ANY", deflt=NULL, how=c("unlist", "replace", "list"), ...)
   * 
 ```
 x <- list(a=12, b=1:4, c=c('b','a'))
@@ -98,7 +101,7 @@ rapply(a, function(x) paste0(x,'++++'), classes='character', deflt=NA, how='list
 ```
 <br>
 
-* eapply()：eapply(env, FUN, ..., all.names = FALSE, USE.NAMES = TRUE)
+* eapply()：eapply(env, FUN, ..., all.names=FALSE, USE.NAMES=TRUE)
   * 
 ```
 env <- new.env()
@@ -110,6 +113,7 @@ ls(env)
 ls.str(env)
 # 計算 env 環境空間中所有變量的均值
 eapply(env, mean)
+
 # 查看所有變數的占用內存大小
 eapply(environment(), object.size)
 ```
