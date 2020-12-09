@@ -10,6 +10,7 @@ data <- array(1:50, c(5, 10))
 apply(data, 2, function(a)sum(a^2))                       # 每一欄的平方和
 apply(data, 1, function(x) length(x[x %% 7 == 0]))        # 被 7 整除的數字個數
 ```
+<br>
 
 * lapply()：lapply(X, FUN, …)
   * 透過 lapply 函數操作完之後，會回傳一個 list
@@ -17,6 +18,7 @@ apply(data, 1, function(x) length(x[x %% 7 == 0]))        # 被 7 整除的數�
 ```
 EX1 <- lapply(1:3, function(x)x^x)                        # x 的 x 次方
 ```
+<br>
 
 * sapply()：sapply(X, FUN, …)
   * 透過函數 sapply 回傳的結果是將 list 形式簡單化 (simplified) 後的 vector
@@ -26,6 +28,7 @@ data2 <- data.frame(height = c(157, 172, 168),
                     weight = c(53, 70, 61))
 sapply(data2, mean)
 ```
+<br>
 
 * mapply()：mapply(FUN, …)
   * 可以同時使用多個變數
@@ -38,6 +41,7 @@ z <- round(runif(10, -5, 5))
 # 按索引順序取較大的值
 mapply(max, x, y, z)
 ```
+<br>
 
 * vapply()：vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
   * 
@@ -47,6 +51,7 @@ vapply(x, cumsum, FUN.VALUE=c('a'=0, 'b'=0, 'c'=0, 'd'=0))
 a <- sapply(x, cumsum)
 row.names(a) <- c('a', 'b', 'c', 'd')
 ```
+<br>
 
 * tapply()：tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
   * 
@@ -58,7 +63,8 @@ tapply(x, t, sum)
 # 對於 t=0 時，x=8 再加上 y=55，最後計算結果為 63
 tapply(x, t, sum, y)
 ```
- 
+<br>
+
 * rapply()：rapply(object, f, classes = "ANY", deflt = NULL, how = c("unlist", "replace", "list"), ...)
   * 
 ```
@@ -71,6 +77,7 @@ rapply(a, sort, classes='numeric', how='replace')
 # 把所有字串型加上'++++'
 rapply(a, function(x) paste0(x,'++++'), classes='character', deflt=NA, how='list')
 ```
+<br>
 
 * eapply()：eapply(env, FUN, ..., all.names = FALSE, USE.NAMES = TRUE)
   * 
@@ -87,9 +94,11 @@ eapply(env, mean)
 # 查看所有變數的占用內存大小
 eapply(environment(), object.size)
 ```
+<br>
 
 ## 圖示
 ![apply家族](https://github.com/sueshow/R_Basics/blob/main/picture/apply.png)
+
 
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
