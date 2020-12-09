@@ -100,6 +100,7 @@ eapply(environment(), object.size)
 ![apply家族](https://github.com/sueshow/R_Basics/blob/main/picture/apply.png)
 
 ## 比較
+從 CPU 的耗時來看，用 for 的計算最耗時，apply 耗時很短，而直接使用内置的向量計算的操作幾乎不耗時。通過上面的測試，優先考虑内置的向量計算，必须要用到循環計算時則使用 apply，應該盡量避免使用 for, while 等操作方法。
 ```
 # 封裝fun1
 fun1 <- function(x){
