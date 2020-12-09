@@ -3,7 +3,7 @@
 ## apply 家族
 apply 家族位在 R 內建的 base 裡面，不需要額外安裝 package
 
-* apply()：apply(X, MARGIN, FUN, …)
+* apply()：apply(X, MARGIN, FUN, ...)
   * apply 的用法是將一個函數 FUN 套用在指定的資料集 X 中的每個元素上，透過 MARGIN 參數來指定函數 FUN 是要依照列 (by row = 1) 還是欄 (by column = 2) 來執行
 ```
 data <- array(1:50, c(5, 10))
@@ -19,7 +19,7 @@ apply(x, 1, myFUN, c1='x1', c2=c('x1','x2'))
 ```
 <br>
 
-* lapply()：lapply(X, FUN, …)
+* lapply()：lapply(X, FUN, ...)
   * 透過 lapply 函數操作完之後，會回傳一個 list
   * 在 lapply 當中不能指定要 by row 還是 by column，會逐個項目去運算，所以這裡的資料 X 通常會放一維的 vector，在操作上會比較清楚
 ```
@@ -32,7 +32,7 @@ lapply(data.frame(x), sum)
 ```
 <br>
 
-* sapply()：sapply(X, FUN, …)
+* sapply()：sapply(X, FUN, ..., simplify=TRUE, USE.NAMES = TRUE)
   * 透過函數 sapply 回傳的結果是將 list 形式簡單化 (simplified) 後的 vector
   * sapply 在功能上與 lapply 基本上是一樣的，都是餵給一個 list，然後依據後面指定的功能函數來一項一項做運算， 不過跟 lapply 不同的是，sapply 會回傳一個 vector
 ```
@@ -42,7 +42,7 @@ sapply(data2, mean)
 ```
 <br>
 
-* mapply()：mapply(FUN, …)
+* mapply()：mapply(FUN, ...)
   * 可以同時使用多個變數
   * 在 mapply 中，運算函數放前，list 在後。假設今天給 mapply 三個 list{a, b, c}，mapply 會分別取三個 list 的第一項去做第一次運算，然後換三個 list 的第二項去做第二次運算…依此類推
 ```
