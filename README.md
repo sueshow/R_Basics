@@ -9,6 +9,13 @@ apply 家族位在 R 內建的 base 裡面，不需要額外安裝 package
 data <- array(1:50, c(5, 10))
 apply(data, 2, function(a)sum(a^2))                       # 每一欄的平方和
 apply(data, 1, function(x) length(x[x %% 7 == 0]))        # 被 7 整除的數字個數
+
+x <- cbind(x1=3, x2=c(4:1, 2:5))
+myFUN<- function(x, c1, c2) {
+          c(sum(x[c1], 1), mean(x[c2])) 
+}
+# 把數據框按行做循環，每行分別傳遞給 myFUN 函數，設置 c1,c2 對應 myFUN 的第二、三個參數
+apply(x, 1, myFUN, c1='x1', c2=c('x1','x2'))
 ```
 <br>
 
@@ -17,6 +24,11 @@ apply(data, 1, function(x) length(x[x %% 7 == 0]))        # 被 7 整除的數�
   * 在 lapply 當中不能指定要 by row 還是 by column，會逐個項目去運算，所以這裡的資料 X 通常會放一維的 vector，在操作上會比較清楚
 ```
 EX1 <- lapply(1:3, function(x)x^x)                        # x 的 x 次方
+
+x <- cbind(x1=3, x2=c(2:1,4:5))
+class(x)
+lapply(x, sum)
+lapply(data.frame(x), sum)
 ```
 <br>
 
@@ -138,3 +150,4 @@ system.time(fun3(x))
 
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
+* http://blog.fens.me/r-apply/
