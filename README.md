@@ -11,7 +11,7 @@ apply(data, 2, function(a)sum(a^2))                       # 每一欄的平方�
 apply(data, 1, function(x) length(x[x %% 7 == 0]))        # 被 7 整除的數字個數
 
 x <- cbind(x1=3, x2=c(4:1, 2:5))
-myFUN<- function(x, c1, c2) {
+myFUN <- function(x, c1, c2) {
           c(sum(x[c1], 1), mean(x[c2])) 
 }
 # 把數據框按行做循環，每行分別傳遞給 myFUN 函數，設置 c1,c2 對應 myFUN 的第二、三個參數
@@ -35,10 +35,18 @@ lapply(data.frame(x), sum)
 * sapply()：sapply(X, FUN, ..., simplify=TRUE, USE.NAMES = TRUE)
   * 透過函數 sapply 回傳的結果是將 list 形式簡單化 (simplified) 後的 vector
   * sapply 在功能上與 lapply 基本上是一樣的，都是餵給一個 list，然後依據後面指定的功能函數來一項一項做運算， 不過跟 lapply 不同的是，sapply 會回傳一個 vector
+  * 如果 simplify=FALSE 和 USE.NAMES=FALSE，sapply 完全等於 lapply
 ```
 data2 <- data.frame(height = c(157, 172, 168),
                     weight = c(53, 70, 61))
 sapply(data2, mean)
+```
+<br>
+  * 對於 simplify 為 array 時
+```
+a <- 1:2
+sapply(a, function(x) matrix(x,2,2), simplify='array')
+sapply(a, function(x) matrix(x,2,2))
 ```
 <br>
 
@@ -112,7 +120,7 @@ eapply(environment(), object.size)
 ![apply家族](https://github.com/sueshow/R_Basics/blob/main/picture/apply.png)
 
 ## 比較
-從 CPU 的耗時來看，用 for 的計算最耗時，apply 耗時很短，而直接使用内置的向量計算的操作幾乎不耗時。通過上面的測試，優先考虑内置的向量計算，必须要用到循環計算時則使用 apply，應該盡量避免使用 for, while 等操作方法。
+* 從 CPU 的耗時來看，用 for 的計算最耗時，apply 耗時很短，而直接使用内置的向量計算的操作幾乎不耗時。通過上面的測試，優先考虑内置的向量計算，必须要用到循環計算時則使用 apply，應該盡量避免使用 for, while 等操作方法。
 ```
 # 封裝fun1
 fun1 <- function(x){
@@ -145,6 +153,14 @@ system.time(fun1(x))
 system.time(fun2(x))
 
 system.time(fun3(x))
+```
+<br>
+
+* 如果 simplify=FALSE 和 USE.NAMES=FALSE，sapply 完全等於 lapply
+```
+x <- cbind(x1=3, x2=c(2:1,4:5))
+lapply(data.frame(x), sum)
+sapply(data.frame(x), sum, simplify=FALSE, USE.NAMES=FALSE)
 ```
 <br>
 
