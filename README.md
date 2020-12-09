@@ -96,6 +96,7 @@ z <- data.frame(a=rnorm(10), b=1:10)
 a <- list(x=x, y=y, z=z)
 # 對一個 list 的數據進行過濾，把所有數字型進行排序
 rapply(a, sort, classes='numeric', how='replace')
+
 # 把所有字串型加上'++++'
 rapply(a, function(x) paste0(x,'++++'), classes='character', deflt=NA, how='list')
 ```
