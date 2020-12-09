@@ -42,7 +42,6 @@ data2 <- data.frame(height = c(157, 172, 168),
 sapply(data2, mean)
 ```
 
-  * 對於 simplify 為 array 時
 ```
 a <- 1:2
 sapply(a, function(x) matrix(x,2,2), simplify='array')
