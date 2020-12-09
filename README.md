@@ -41,7 +41,7 @@ data2 <- data.frame(height = c(157, 172, 168),
                     weight = c(53, 70, 61))
 sapply(data2, mean)
 ```
-<br>
+
   * 對於 simplify 為 array 時
 ```
 a <- 1:2
