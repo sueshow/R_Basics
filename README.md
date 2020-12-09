@@ -88,7 +88,6 @@ tapply(x, t, sum, y)
 <br>
 
 * rapply()：rapply(object, f, classes="ANY", deflt=NULL, how=c("unlist", "replace", "list"), ...)
-  * 
 ```
 x <- list(a=12, b=1:4, c=c('b','a'))
 y <- pi
@@ -103,7 +102,6 @@ rapply(a, function(x) paste0(x,'++++'), classes='character', deflt=NA, how='list
 <br>
 
 * eapply()：eapply(env, FUN, ..., all.names=FALSE, USE.NAMES=TRUE)
-  * 
 ```
 env <- new.env()
 env$a <- 1:10
