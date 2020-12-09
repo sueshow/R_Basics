@@ -89,7 +89,7 @@ eapply(environment(), object.size)
 ```
 
 ## 圖示
-![apply家族](https://github.com/sueshow/Python_Latitude-and-Longitude/blob/master/picture/%E5%88%86%E5%B8%B6%E9%A1%9E%E5%9E%8B.JPG)
+![apply家族](https://github.com/sueshow/R_Basics/blob/main/picture/apply.png)
 
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
