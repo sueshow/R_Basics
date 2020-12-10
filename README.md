@@ -1,4 +1,4 @@
-# R Basics
+# R Basics：Apply家族
 
 ## apply 家族
 apply 家族位在 R 內建的 base 裡面，不需要額外安裝 package
