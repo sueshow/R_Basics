@@ -254,14 +254,14 @@ system.time(fun2(x))
 
 system.time(fun3(x))
 ```
->    user  system elapsed 
->    0.02    0.00    0.01
+>    user  system elapsed <br>
+>    0.02    0.00    0.01 <br>
 > <br>
->    user  system elapsed 
->    0.16    0.00    0.16 
+>    user  system elapsed <br>
+>    0.16    0.00    0.16 <br> 
 > <br>
->    user  system elapsed 
->       0       0       0
+>    user  system elapsed <br>
+>       0       0       0 <br>
 <br>
 
 * 如果 simplify=FALSE 和 USE.NAMES=FALSE，sapply 完全等於 lapply
