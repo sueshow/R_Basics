@@ -362,15 +362,23 @@ rbind(a,b)
 > [6,]   -3   -6   -9  -12 <br>
 
 ```
-c <- matrix(-1:-20, 4, 5)
+c <- matrix(-1:-20, 5, 4)
 cbind(a,c)
 ```
-> Error in cbind(a, c) : 矩陣的行數必須相符 <br>
+> Error in cbind(a, c) : number of rows of matrices must match (see arg 2) <br>
 
 ```
 rbind(a,c)
 ```
-> Error in rbind(a, c) : 矩陣的列數必須相符 <br>
+>      [,1] [,2] [,3] [,4] <br>
+> [1,]    1    4    7   10 <br>
+> [2,]    2    5    8   11 <br>
+> [3,]    3    6    9   12 <br>
+> [4,]   -1   -6  -11  -16 <br>
+> [5,]   -2   -7  -12  -17 <br>
+> [6,]   -3   -8  -13  -18 <br>
+> [7,]   -4   -9  -14  -19 <br>
+> [8,]   -5  -10  -15  -20 <br>
 
 
 ## 參考資訊
