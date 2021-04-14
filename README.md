@@ -274,6 +274,21 @@ sapply(data.frame(x), sum, simplify=FALSE, USE.NAMES=FALSE)
 >  $x2   [1] 12  <br>
 <br>
 
+# R Basics：cbind和rbind函数
+* cbind：根據列進行合併，即曡加所有列，m 列的矩陣與 n 列的矩陣列 cbind() 最後變成 m+n 列，合併前提：cbind(a, c)中矩陣 a、c 的行數必須相符
+* rbind：根據列進行合併，即曡加所有行，m 行的矩陣與 n 行的矩陣 rbind() 最後變成 m+n 行，合併前提：rbind(a, c)中矩陣 a、c 的列數必須相符
+```
+a <- matrix(1:12, 3, 4)
+b <- matrix(-1:-12, 3, 4)
+c <- matrix(-1:-20, 4, 5)
+x <- cbind(a,b)
+print(x)
+y <- rbind(a,b)
+print(y)
+x2 <- cbind(a,c)
+y2 <- rbind(a,c)
+```
+
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
 * http://blog.fens.me/r-apply/
