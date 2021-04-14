@@ -274,7 +274,7 @@ sapply(data.frame(x), sum, simplify=FALSE, USE.NAMES=FALSE)
 >  $x2   [1] 12  <br>
 <br>
 
-# R Basics：cbind和rbind函数
+# R Basics：資料合併與分割
 * cbind：根據列進行合併，即曡加所有列，m 列的矩陣與 n 列的矩陣列 cbind() 最後變成 m+n 列，合併前提：cbind(a, c)中矩陣 a、c 的行數必須相符
 * rbind：根據列進行合併，即曡加所有行，m 行的矩陣與 n 行的矩陣 rbind() 最後變成 m+n 行，合併前提：rbind(a, c)中矩陣 a、c 的列數必須相符
 ```
@@ -288,6 +288,24 @@ print(y)
 x2 <- cbind(a,c)
 y2 <- rbind(a,c)
 ```
+```
+x <- c(1, 2, 3)
+y <- c(10, 20, 30)
+union(x ,y) # union 如英文名稱就是取聯集
+rbind(x, y) # 透過 row 合併
+cbind(x, y) # 透過 column 合併
+
+x <- cbind(c("Tom", "Joe", "Vicky", "Bob"), c(27, 29, 28, 25))
+y <- cbind(c("Tom", "Joe", "Vicky", "Bruce"), c(178, 186, 168, 170))
+colnames(x) <- c("name", "age")
+colnames(y) <- c("name", "tall")
+merge(x, y, by = "name") # 將 data.frame 透過一個欄位進行合併
+merge(x, y, by = "name", all = T) # alt 是用來詢問是否顯示所有資料，像 Bob 與 Bruce 都有一欄資料沒有，所以沒下 all = T，應該不會出現 Bob 與 Bruce 資料
+merge(x, y, by = "name", all.x = T) # 只顯示 x 有的資料，所以 Bruce 就不會出現
+merge(x, y, by = "name", all.y = T) # 只顯示 y 有的資料，所以 Bob 就不會出現
+```
+<br>
+
 
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
