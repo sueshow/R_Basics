@@ -340,7 +340,40 @@ merge(x, y, by = "name", all.y = T) # 只顯示 y 有的資料，所以 Bob 就�
 > 3 Vicky   28  168   <br>
 > 4 Bruce <NA>  170   <br>
 
+```
+a <- matrix(1:12, 3, 4)
+b <- matrix(-1:-12, 3, 4)
+cbind(a,b)
+```
+>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] <br>
+> [1,]    1    4    7   10   -1   -4   -7  -10 <br>
+> [2,]    2    5    8   11   -2   -5   -8  -11 <br>
+> [3,]    3    6    9   12   -3   -6   -9  -12 <br>
+
+```
+rbind(a,b)
+```
+>      [,1] [,2] [,3] [,4] <br>
+> [1,]    1    4    7   10 <br>
+> [2,]    2    5    8   11 <br>
+> [3,]    3    6    9   12 <br>
+> [4,]   -1   -4   -7  -10 <br>
+> [5,]   -2   -5   -8  -11 <br>
+> [6,]   -3   -6   -9  -12 <br>
+
+```
+c <- matrix(-1:-20, 4, 5)
+cbind(a,c)
+```
+> Error in cbind(a, c) : 矩陣的行數必須相符 <br>
+
+```
+rbind(a,c)
+```
+> Error in rbind(a, c) : 矩陣的列數必須相符 <br>
+
 
 ## 參考資訊
 * https://kemushi54.github.io/R-basic/apply_family.html
 * http://blog.fens.me/r-apply/
+* https://blog.csdn.net/ARPOSPF/article/details/85450238
